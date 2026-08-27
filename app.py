@@ -336,7 +336,7 @@ elif menu == "Anjiyo Görüntü Analizi (Image Processing)":
                 valid_contours = [c for c in contours if cv2.contourArea(c) > (w * h * 0.0005)]
                 valid_contours = sorted(valid_contours, key=lambda c: cv2.contourArea(c) * (cv2.boundingRect(c)[1] + 1), reverse=True)
 
-                img_hash = sum(file_bytes[:50])
+                img_hash = int(sum(file_bytes[:50]))  # Burada int() içine alarak türü garantiye alıyoruz
                 random.seed(img_hash)
                 
                 stenoz_1 = random.randint(75, 96)
