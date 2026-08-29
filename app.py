@@ -76,7 +76,7 @@ st.markdown(
 
     <div class="top-header">
         <img src="data:image/jpeg;base64,{logo_base64}" class="top-logo" alt="Logo">
-        <h2 style='color: #C92A2A; margin: 0;'>ŞENFEST - ÇİĞLİ BİLSEM | İskRisk Platformu</h2>
+        <h2 style='color: #C92A2A; margin: 0;'>ŞENFEST - ÇİĞLİ BİLSEM | İskRisk Platformu <span style='font-size: 0.65rem; color: #555; font-weight: normal; margin-left: 10px;'>İletişim: iskrisk26@gmail.com</span></h2>
     </div>
     """,
     unsafe_allow_html=True
@@ -249,7 +249,7 @@ elif menu == "Klinik Risk Tahmini (MLP)":
         else: risk_puani -= 4.0  # Genç yaş (örn. <35) riski ciddi oranda düşürür
 
         # 2. Göğüs Ağrısı Tipi (CP) - Klinik Tanıdaki En Güçlü Semptom
-        if cp == 0: risk_puani += 24.0      # Tipik Angina (Yüksek Risk)
+        if cp == 0: risk_puani += 24.0     # Tipik Angina (Yüksek Risk)
         elif cp == 1: risk_puani += 14.0    # Atipik Angina
         elif cp == 2: risk_puani += 6.0     # Non-anginal
         elif cp == 3: risk_puani -= 3.0     # Asemptomatik (Şikayet yoksa risk düşer)
@@ -364,7 +364,7 @@ elif menu == "Anjiyo Görüntü Analizi (Image Processing)":
                     cv2.rectangle(img, (x3, y3), (x3 + cw3, y3 + ch3), (0, 255, 255), 2)
                     cv2.putText(img, "LCx: Plak Formasyonu", (x3, max(15, y3 - 8)),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 255, 255), 2)
-                                
+                            
                     rapor_metinleri.append(f"LAD arterinde %{stenoz_1} oranında kritik darlık")
                     rapor_metinleri.append(f"RCA dalında %{stenoz_2} oranında orta düzey darlık")
                     rapor_metinleri.append("LCx bölgesinde erken dönem aterosklerotik plak")
@@ -381,7 +381,7 @@ elif menu == "Anjiyo Görüntü Analizi (Image Processing)":
                     cv2.rectangle(img, (max(0, cX - box_w), max(0, cY - box_h)), (min(w, cX + box_w), min(h, cY + box_h)), (0, 0, 255), 2)
                     cv2.putText(img, f"LAD: %{stenoz_1} Stenoz", (max(0, cX - box_w), max(15, cY - box_h - 8)),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 0, 255), 2)
-                                
+                            
                     rapor_metinleri.append(f"Merkezi damar yapısında %{stenoz_1} oranında iskemik lezyon")
 
                 rapor_ozeti = ", ".join(rapor_metinleri)
